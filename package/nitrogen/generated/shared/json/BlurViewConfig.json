@@ -1,0 +1,13 @@
+{
+  "uiViewClassName": "BlurView",
+  "supportsRawText": false,
+  "bubblingEventTypes": {},
+  "directEventTypes": {},
+  "validAttributes": {
+    "blurRadius": true,
+    "cornerRadius": true,
+    "blurRounds": true,
+    "overlayColor": true,
+    "hybridRef": true
+  }
+}
