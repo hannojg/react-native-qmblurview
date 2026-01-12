@@ -22,6 +22,8 @@ namespace margelo::nitro::qmblurview {
       prototype.registerHybridSetter("blurRounds", &HybridBlurViewSpec::setBlurRounds);
       prototype.registerHybridGetter("overlayColor", &HybridBlurViewSpec::getOverlayColor);
       prototype.registerHybridSetter("overlayColor", &HybridBlurViewSpec::setOverlayColor);
+      prototype.registerHybridGetter("downsampleFactor", &HybridBlurViewSpec::getDownsampleFactor);
+      prototype.registerHybridSetter("downsampleFactor", &HybridBlurViewSpec::setDownsampleFactor);
     });
   }
 

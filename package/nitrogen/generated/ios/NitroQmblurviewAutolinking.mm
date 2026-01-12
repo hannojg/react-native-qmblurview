@@ -24,7 +24,7 @@
   HybridObjectRegistry::registerHybridObjectConstructor(
     "BlurView",
     []() -> std::shared_ptr<HybridObject> {
-      std::shared_ptr<HybridBlurViewSpec> hybridObject = NitroQmblurview::NitroQmblurviewAutolinking::createBlurView();
+      std::shared_ptr<HybridBlurViewSpec> hybridObject = NitroQmblurview::NitroQmblurviewAutolinking::BlurView::create();
       return hybridObject;
     }
   );

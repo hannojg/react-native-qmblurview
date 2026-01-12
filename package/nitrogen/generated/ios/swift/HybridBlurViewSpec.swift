@@ -15,6 +15,7 @@ public protocol HybridBlurViewSpec_protocol: HybridObject, HybridView {
   var cornerRadius: Double? { get set }
   var blurRounds: Double? { get set }
   var overlayColor: String? { get set }
+  var downsampleFactor: Double? { get set }
 
   // Methods
   
@@ -33,14 +34,14 @@ open class HybridBlurViewSpec_base {
   public init() { }
   public func getCxxWrapper() -> HybridBlurViewSpec_cxx {
   #if DEBUG
-    guard self is HybridBlurViewSpec else {
+    guard self is any HybridBlurViewSpec else {
       fatalError("`self` is not a `HybridBlurViewSpec`! Did you accidentally inherit from `HybridBlurViewSpec_base` instead of `HybridBlurViewSpec`?")
     }
   #endif
     if let cxxWrapper = self.cxxWrapper {
       return cxxWrapper
     } else {
-      let cxxWrapper = HybridBlurViewSpec_cxx(self as! HybridBlurViewSpec)
+      let cxxWrapper = HybridBlurViewSpec_cxx(self as! any HybridBlurViewSpec)
       self.cxxWrapper = cxxWrapper
       return cxxWrapper
     }

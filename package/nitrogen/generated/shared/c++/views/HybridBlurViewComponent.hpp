@@ -47,6 +47,7 @@ namespace margelo::nitro::qmblurview::views {
     CachedProp<std::optional<double>> cornerRadius;
     CachedProp<std::optional<double>> blurRounds;
     CachedProp<std::optional<std::string>> overlayColor;
+    CachedProp<std::optional<double>> downsampleFactor;
     CachedProp<std::optional<std::function<void(const std::shared_ptr<HybridBlurViewSpec>& /* ref */)>>> hybridRef;
 
   private:

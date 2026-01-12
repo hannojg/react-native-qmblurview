@@ -52,6 +52,10 @@ void JHybridBlurViewStateUpdater::updateViewProps(jni::alias_ref<jni::JClass> /*
     view->setOverlayColor(props.overlayColor.value);
     // TODO: Set isDirty = false
   }
+  if (props.downsampleFactor.isDirty) {
+    view->setDownsampleFactor(props.downsampleFactor.value);
+    // TODO: Set isDirty = false
+  }
 
   // Update hybridRef if it changed
   if (props.hybridRef.isDirty) {

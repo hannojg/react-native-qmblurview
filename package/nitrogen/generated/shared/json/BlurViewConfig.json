@@ -8,6 +8,7 @@
     "cornerRadius": true,
     "blurRounds": true,
     "overlayColor": true,
+    "downsampleFactor": true,
     "hybridRef": true
   }
 }

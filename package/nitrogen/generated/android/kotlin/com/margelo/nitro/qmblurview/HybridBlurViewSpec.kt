@@ -65,6 +65,12 @@ abstract class HybridBlurViewSpec: HybridView() {
   @set:DoNotStrip
   @set:Keep
   abstract var overlayColor: String?
+  
+  @get:DoNotStrip
+  @get:Keep
+  @set:DoNotStrip
+  @set:Keep
+  abstract var downsampleFactor: Double?
 
   // Methods
   

@@ -84,6 +84,15 @@ namespace margelo::nitro::qmblurview {
     static const auto method = javaClassStatic()->getMethod<void(jni::alias_ref<jni::JString> /* overlayColor */)>("setOverlayColor");
     method(_javaPart, overlayColor.has_value() ? jni::make_jstring(overlayColor.value()) : nullptr);
   }
+  std::optional<double> JHybridBlurViewSpec::getDownsampleFactor() {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<jni::JDouble>()>("getDownsampleFactor");
+    auto __result = method(_javaPart);
+    return __result != nullptr ? std::make_optional(__result->value()) : std::nullopt;
+  }
+  void JHybridBlurViewSpec::setDownsampleFactor(std::optional<double> downsampleFactor) {
+    static const auto method = javaClassStatic()->getMethod<void(jni::alias_ref<jni::JDouble> /* downsampleFactor */)>("setDownsampleFactor");
+    method(_javaPart, downsampleFactor.has_value() ? jni::JDouble::valueOf(downsampleFactor.value()) : nullptr);
+  }
 
   // Methods
   

@@ -41,14 +41,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrousavy/nitro.git"
+    "url": "git+https://github.com/hannojg/react-native-qmblurview.git"
   },
-  "author": "Marc Rousavy <me@mrousavy.com> (https://github.com/mrousavy)",
+  "author": "Hanno Gödecke <hanno@margelo.com> (https://github.com/hannojg)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mrousavy/nitro/issues"
+    "url": "https://github.com/hannojg/react-native-qmblurview/issues"
   },
-  "homepage": "https://github.com/mrousavy/nitro#readme",
+  "homepage": "https://github.com/hannojg/react-native-qmblurview#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -62,7 +62,7 @@
     "prettier": "^3.3.3",
     "react": "19.1.1",
     "react-native": "0.82.0",
-    "react-native-nitro-modules": "*",
+    "react-native-nitro-modules": "^0.33.0",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {

@@ -41,14 +41,9 @@ using namespace margelo::nitro::qmblurview::views;
   return react::concreteComponentDescriptorProvider<HybridBlurViewComponentDescriptor>();
 }
 
-+ (BOOL)shouldBeRecycled {
-  // TODO: Recycling should be controllable by the user. WIP, but disabled for now.
-  return NO;
-}
-
 - (instancetype) init {
   if (self = [super init]) {
-    std::shared_ptr<HybridBlurViewSpec> hybridView = NitroQmblurview::NitroQmblurviewAutolinking::createBlurView();
+    std::shared_ptr<HybridBlurViewSpec> hybridView = NitroQmblurview::NitroQmblurviewAutolinking::BlurView::create();
     _hybridView = std::dynamic_pointer_cast<HybridBlurViewSpecSwift>(hybridView);
     [self updateView];
   }
@@ -97,6 +92,11 @@ using namespace margelo::nitro::qmblurview::views;
     swiftPart.setOverlayColor(newViewProps.overlayColor.value);
     newViewProps.overlayColor.isDirty = false;
   }
+  // downsampleFactor: optional
+  if (newViewProps.downsampleFactor.isDirty) {
+    swiftPart.setDownsampleFactor(newViewProps.downsampleFactor.value);
+    newViewProps.downsampleFactor.isDirty = false;
+  }
 
   swiftPart.afterUpdate();
 
@@ -112,6 +112,16 @@ using namespace margelo::nitro::qmblurview::views;
 
   // 4. Continue in base class
   [super updateProps:props oldProps:oldProps];
+}
+
++ (BOOL)shouldBeRecycled {
+  return NitroQmblurview::NitroQmblurviewAutolinking::BlurView::isRecyclableHybridView();
+}
+
+- (void)prepareForRecycle {
+  [super prepareForRecycle];
+  NitroQmblurview::HybridBlurViewSpec_cxx& swiftPart = _hybridView->getSwiftPart();
+  swiftPart.maybePrepareForRecycle();
 }
 
 @end

@@ -59,6 +59,8 @@ namespace margelo::nitro::qmblurview {
     void setBlurRounds(std::optional<double> blurRounds) override;
     std::optional<std::string> getOverlayColor() override;
     void setOverlayColor(const std::optional<std::string>& overlayColor) override;
+    std::optional<double> getDownsampleFactor() override;
+    void setDownsampleFactor(std::optional<double> downsampleFactor) override;
 
   public:
     // Methods

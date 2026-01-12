@@ -196,6 +196,23 @@ open class HybridBlurViewSpec_cxx {
       }()
     }
   }
+  
+  public final var downsampleFactor: bridge.std__optional_double_ {
+    @inline(__always)
+    get {
+      return { () -> bridge.std__optional_double_ in
+        if let __unwrappedValue = self.__implementation.downsampleFactor {
+          return bridge.create_std__optional_double_(__unwrappedValue)
+        } else {
+          return .init()
+        }
+      }()
+    }
+    @inline(__always)
+    set {
+      self.__implementation.downsampleFactor = newValue.value
+    }
+  }
 
   // Methods
   public final func getView() -> UnsafeMutableRawPointer {
@@ -208,5 +225,10 @@ open class HybridBlurViewSpec_cxx {
   
   public final func afterUpdate() {
     __implementation.afterUpdate()
+  }
+  
+  public final func maybePrepareForRecycle() {
+    guard let recyclable = __implementation as? RecyclableView else { return }
+    recyclable.prepareForRecycle()
   }
 }

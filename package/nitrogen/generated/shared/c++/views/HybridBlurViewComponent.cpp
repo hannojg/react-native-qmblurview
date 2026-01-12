@@ -66,6 +66,16 @@ namespace margelo::nitro::qmblurview::views {
         throw std::runtime_error(std::string("BlurView.overlayColor: ") + exc.what());
       }
     }()),
+    downsampleFactor([&]() -> CachedProp<std::optional<double>> {
+      try {
+        const react::RawValue* rawValue = rawProps.at("downsampleFactor", nullptr, nullptr);
+        if (rawValue == nullptr) return sourceProps.downsampleFactor;
+        const auto& [runtime, value] = (std::pair<jsi::Runtime*, jsi::Value>)*rawValue;
+        return CachedProp<std::optional<double>>::fromRawValue(*runtime, value, sourceProps.downsampleFactor);
+      } catch (const std::exception& exc) {
+        throw std::runtime_error(std::string("BlurView.downsampleFactor: ") + exc.what());
+      }
+    }()),
     hybridRef([&]() -> CachedProp<std::optional<std::function<void(const std::shared_ptr<HybridBlurViewSpec>& /* ref */)>>> {
       try {
         const react::RawValue* rawValue = rawProps.at("hybridRef", nullptr, nullptr);
@@ -83,6 +93,7 @@ namespace margelo::nitro::qmblurview::views {
     cornerRadius(other.cornerRadius),
     blurRounds(other.blurRounds),
     overlayColor(other.overlayColor),
+    downsampleFactor(other.downsampleFactor),
     hybridRef(other.hybridRef) { }
 
   bool HybridBlurViewProps::filterObjectKeys(const std::string& propName) {
@@ -91,6 +102,7 @@ namespace margelo::nitro::qmblurview::views {
       case hashString("cornerRadius"): return true;
       case hashString("blurRounds"): return true;
       case hashString("overlayColor"): return true;
+      case hashString("downsampleFactor"): return true;
       case hashString("hybridRef"): return true;
       default: return false;
     }

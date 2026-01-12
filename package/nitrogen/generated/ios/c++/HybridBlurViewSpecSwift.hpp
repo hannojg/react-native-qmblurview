@@ -91,6 +91,13 @@ namespace margelo::nitro::qmblurview {
     inline void setOverlayColor(const std::optional<std::string>& overlayColor) noexcept override {
       _swiftPart.setOverlayColor(overlayColor);
     }
+    inline std::optional<double> getDownsampleFactor() noexcept override {
+      auto __result = _swiftPart.getDownsampleFactor();
+      return __result;
+    }
+    inline void setDownsampleFactor(std::optional<double> downsampleFactor) noexcept override {
+      _swiftPart.setDownsampleFactor(downsampleFactor);
+    }
 
   public:
     // Methods
