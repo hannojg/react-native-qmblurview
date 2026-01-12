@@ -36,7 +36,7 @@ class HybridBlurView(reactContext: ThemedReactContext) : HybridBlurViewSpec() {
     override var downsampleFactor: Double?
         get() = null
         set(value) {
-            val floatValue = value?.toFloat() ?: 1f
+            val floatValue = value?.toFloat() ?: 0f
             view.setDownsampleFactor(floatValue)
         }
 
