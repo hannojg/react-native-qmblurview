@@ -17,6 +17,8 @@
 
 #include "JHybridBlurViewSpec.hpp"
 #include "views/JHybridBlurViewStateUpdater.hpp"
+#include "JHybridBlurViewGroupSpec.hpp"
+#include "views/JHybridBlurViewGroupStateUpdater.hpp"
 #include <NitroModules/DefaultConstructableObject.hpp>
 
 namespace margelo::nitro::qmblurview {
@@ -30,12 +32,22 @@ int initialize(JavaVM* vm) {
     // Register native JNI methods
     margelo::nitro::qmblurview::JHybridBlurViewSpec::registerNatives();
     margelo::nitro::qmblurview::views::JHybridBlurViewStateUpdater::registerNatives();
+    margelo::nitro::qmblurview::JHybridBlurViewGroupSpec::registerNatives();
+    margelo::nitro::qmblurview::views::JHybridBlurViewGroupStateUpdater::registerNatives();
 
     // Register Nitro Hybrid Objects
     HybridObjectRegistry::registerHybridObjectConstructor(
       "BlurView",
       []() -> std::shared_ptr<HybridObject> {
         static DefaultConstructableObject<JHybridBlurViewSpec::javaobject> object("com/margelo/nitro/qmblurview/HybridBlurView");
+        auto instance = object.create();
+        return instance->cthis()->shared();
+      }
+    );
+    HybridObjectRegistry::registerHybridObjectConstructor(
+      "BlurViewGroup",
+      []() -> std::shared_ptr<HybridObject> {
+        static DefaultConstructableObject<JHybridBlurViewGroupSpec::javaobject> object("com/margelo/nitro/qmblurview/HybridBlurViewGroup");
         auto instance = object.create();
         return instance->cthis()->shared();
       }

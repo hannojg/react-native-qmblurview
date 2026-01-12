@@ -8,10 +8,13 @@
 #pragma once
 
 // Forward declarations of C++ defined types
+// Forward declaration of `HybridBlurViewGroupSpec` to properly resolve imports.
+namespace margelo::nitro::qmblurview { class HybridBlurViewGroupSpec; }
 // Forward declaration of `HybridBlurViewSpec` to properly resolve imports.
 namespace margelo::nitro::qmblurview { class HybridBlurViewSpec; }
 
 // Include C++ defined types
+#include "HybridBlurViewGroupSpec.hpp"
 #include "HybridBlurViewSpec.hpp"
 #include <memory>
 #include <optional>
@@ -27,6 +30,8 @@ namespace margelo::nitro::qmblurview { class HybridBlurViewSpec; }
 #include <NitroModules/DateToChronoDate.hpp>
 
 // Forward declarations of Swift defined types
+// Forward declaration of `HybridBlurViewGroupSpec_cxx` to properly resolve imports.
+namespace NitroQmblurview { class HybridBlurViewGroupSpec_cxx; }
 // Forward declaration of `HybridBlurViewSpec_cxx` to properly resolve imports.
 namespace NitroQmblurview { class HybridBlurViewSpec_cxx; }
 

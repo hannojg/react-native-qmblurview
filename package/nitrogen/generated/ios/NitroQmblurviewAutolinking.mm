@@ -11,6 +11,7 @@
 #import <type_traits>
 
 #include "HybridBlurViewSpecSwift.hpp"
+#include "HybridBlurViewGroupSpecSwift.hpp"
 
 @interface NitroQmblurviewAutolinking : NSObject
 @end
@@ -25,6 +26,13 @@
     "BlurView",
     []() -> std::shared_ptr<HybridObject> {
       std::shared_ptr<HybridBlurViewSpec> hybridObject = NitroQmblurview::NitroQmblurviewAutolinking::BlurView::create();
+      return hybridObject;
+    }
+  );
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "BlurViewGroup",
+    []() -> std::shared_ptr<HybridObject> {
+      std::shared_ptr<HybridBlurViewGroupSpec> hybridObject = NitroQmblurview::NitroQmblurviewAutolinking::BlurViewGroup::create();
       return hybridObject;
     }
   );

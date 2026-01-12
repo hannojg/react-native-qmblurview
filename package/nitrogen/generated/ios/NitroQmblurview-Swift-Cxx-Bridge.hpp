@@ -8,14 +8,19 @@
 #pragma once
 
 // Forward declarations of C++ defined types
+// Forward declaration of `HybridBlurViewGroupSpec` to properly resolve imports.
+namespace margelo::nitro::qmblurview { class HybridBlurViewGroupSpec; }
 // Forward declaration of `HybridBlurViewSpec` to properly resolve imports.
 namespace margelo::nitro::qmblurview { class HybridBlurViewSpec; }
 
 // Forward declarations of Swift defined types
+// Forward declaration of `HybridBlurViewGroupSpec_cxx` to properly resolve imports.
+namespace NitroQmblurview { class HybridBlurViewGroupSpec_cxx; }
 // Forward declaration of `HybridBlurViewSpec_cxx` to properly resolve imports.
 namespace NitroQmblurview { class HybridBlurViewSpec_cxx; }
 
 // Include C++ defined types
+#include "HybridBlurViewGroupSpec.hpp"
 #include "HybridBlurViewSpec.hpp"
 #include <memory>
 #include <optional>
@@ -68,5 +73,17 @@ namespace margelo::nitro::qmblurview::bridge::swift {
   // pragma MARK: std::weak_ptr<HybridBlurViewSpec>
   using std__weak_ptr_HybridBlurViewSpec_ = std::weak_ptr<HybridBlurViewSpec>;
   inline std__weak_ptr_HybridBlurViewSpec_ weakify_std__shared_ptr_HybridBlurViewSpec_(const std::shared_ptr<HybridBlurViewSpec>& strong) noexcept { return strong; }
+  
+  // pragma MARK: std::shared_ptr<HybridBlurViewGroupSpec>
+  /**
+   * Specialized version of `std::shared_ptr<HybridBlurViewGroupSpec>`.
+   */
+  using std__shared_ptr_HybridBlurViewGroupSpec_ = std::shared_ptr<HybridBlurViewGroupSpec>;
+  std::shared_ptr<HybridBlurViewGroupSpec> create_std__shared_ptr_HybridBlurViewGroupSpec_(void* NON_NULL swiftUnsafePointer) noexcept;
+  void* NON_NULL get_std__shared_ptr_HybridBlurViewGroupSpec_(std__shared_ptr_HybridBlurViewGroupSpec_ cppType);
+  
+  // pragma MARK: std::weak_ptr<HybridBlurViewGroupSpec>
+  using std__weak_ptr_HybridBlurViewGroupSpec_ = std::weak_ptr<HybridBlurViewGroupSpec>;
+  inline std__weak_ptr_HybridBlurViewGroupSpec_ weakify_std__shared_ptr_HybridBlurViewGroupSpec_(const std::shared_ptr<HybridBlurViewGroupSpec>& strong) noexcept { return strong; }
 
 } // namespace margelo::nitro::qmblurview::bridge::swift

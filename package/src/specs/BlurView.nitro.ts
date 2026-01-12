@@ -34,3 +34,5 @@ export interface BlurViewProps extends HybridViewProps {
 export interface BlurViewMethods extends HybridViewMethods {}
 
 export type BlurView = HybridView<BlurViewProps, BlurViewMethods>;
+
+export type BlurViewGroup = HybridView<BlurViewProps, BlurViewMethods>;

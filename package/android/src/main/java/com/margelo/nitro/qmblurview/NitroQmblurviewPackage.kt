@@ -6,6 +6,7 @@ import com.facebook.react.module.model.ReactModuleInfoProvider
 import com.facebook.react.BaseReactPackage
 import com.facebook.react.uimanager.ViewManager
 import com.margelo.nitro.qmblurview.views.HybridBlurViewManager
+import com.margelo.nitro.qmblurview.views.HybridBlurViewGroupManager
 
 class NitroQmblurviewPackage : BaseReactPackage() {
     override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? = null
@@ -15,6 +16,7 @@ class NitroQmblurviewPackage : BaseReactPackage() {
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<in Nothing, in Nothing>> {
         val viewManagers = ArrayList<ViewManager<*, *>>()
         viewManagers.add(HybridBlurViewManager())
+        viewManagers.add(HybridBlurViewGroupManager())
         return viewManagers
     }
 

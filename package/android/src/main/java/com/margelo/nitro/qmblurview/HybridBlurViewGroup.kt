@@ -1,10 +1,10 @@
 package com.margelo.nitro.qmblurview
 
 import com.facebook.react.uimanager.ThemedReactContext
-import com.qmdeve.blurview.widget.BlurView
+import com.qmdeve.blurview.widget.BlurViewGroup
 
-open class HybridBlurView(reactContext: ThemedReactContext) : HybridBlurViewSpec() {
-    override val view: BlurView = BlurView(reactContext, null)
+class HybridBlurViewGroup(context: ThemedReactContext) : HybridBlurViewGroupSpec() {
+    override val view = BlurViewGroup(context, null)
 
     override var blurRadius: Double?
         get() = null
@@ -14,10 +14,10 @@ open class HybridBlurView(reactContext: ThemedReactContext) : HybridBlurViewSpec
         }
 
     override var cornerRadius: Double?
-        get() = view.cornerRadius.toDouble()
+        get() = null
         set(value) {
             val floatValue = value?.toFloat() ?: 0f
-            view.cornerRadius = floatValue
+            view.setCornerRadius(floatValue)
         }
 
     override var blurRounds: Double?

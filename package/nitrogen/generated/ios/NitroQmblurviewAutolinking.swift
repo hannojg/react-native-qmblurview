@@ -41,4 +41,17 @@ public final class NitroQmblurviewAutolinking {
       return HybridBlurView.self is any RecyclableView.Type
     }
   }
+  
+  public final class BlurViewGroup: AutolinkedClass {
+    public static func create() -> bridge.std__shared_ptr_HybridBlurViewGroupSpec_ {
+      let hybridObject = HybridBlurViewGroup()
+      return { () -> bridge.std__shared_ptr_HybridBlurViewGroupSpec_ in
+        let __cxxWrapped = hybridObject.getCxxWrapper()
+        return __cxxWrapped.getCxxPart()
+      }()
+    }
+    public static var isRecyclableHybridView: Bool {
+      return HybridBlurViewGroup.self is any RecyclableView.Type
+    }
+  }
 }

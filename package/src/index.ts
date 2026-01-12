@@ -1,1 +1,1 @@
-export { BlurView } from './BlurView'
+export * from './NativeViews'

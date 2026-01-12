@@ -16,6 +16,10 @@
     "BlurView": {
       "kotlin": "HybridBlurView",
       "swift": "HybridBlurView"
+    },
+    "BlurViewGroup": {
+      "kotlin": "HybridBlurViewGroup",
+      "swift": "HybridBlurViewGroup"
     }
   },
   "ignorePaths": [

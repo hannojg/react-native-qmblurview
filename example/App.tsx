@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
-import { BlurView } from "react-native-qmblurview";
+import { StyleSheet, View, Image, Text } from "react-native";
+import { BlurView, BlurViewGroup } from "react-native-qmblurview";
 
 export default function App() {
   return (
@@ -15,26 +15,53 @@ export default function App() {
         source={require("./assets/image.jpg")}
       />
 
-      <BlurView
+      <View
         style={{
-          width: 100,
-          height: 100,
           position: "absolute",
+          rowGap: 20,
+          alignItems: "center",
         }}
-        cornerRadius={65}
+      >
+        <BlurView
+          style={{
+            width: 100,
+            height: 100,
+          }}
+          cornerRadius={65}
+          blurRadius={65}
+          blurRounds={1}
 
-        blurRadius={65}
-        blurRounds={1}
+          // Light blur - best performance
+          // blurRadius={15}
+          // blurRounds={2}
 
-        // Light blur - best performance
-        // blurRadius={15}
-        // blurRounds={2}
+          // Strong blur - balanced (recommended)
+          // blurRadius={25}
+          // blurRounds={3}
+        >
+          {/* TODO: disable children */}
+        </BlurView>
 
-        // Strong blur - balanced (recommended)
-        // blurRadius={25}
-        // blurRounds={3}
-
-      />
+        <BlurViewGroup
+          cornerRadius={65}
+          style={{
+            width: 200,
+            height: 100,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 24,
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
+            BlurViewGroup
+          </Text>
+        </BlurViewGroup>
+      </View>
     </View>
   );
 }
