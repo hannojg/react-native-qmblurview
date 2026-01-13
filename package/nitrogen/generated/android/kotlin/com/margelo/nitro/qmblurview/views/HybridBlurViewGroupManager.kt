@@ -10,7 +10,6 @@ package com.margelo.nitro.qmblurview.views
 import android.view.View
 import android.view.ViewGroup
 import com.facebook.react.uimanager.ReactStylesDiffMap
-import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.StateWrapper
 import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.ViewGroupManager
@@ -53,6 +52,14 @@ open class HybridBlurViewGroupManager: ViewGroupManager<ViewGroup>() {
     return super.updateState(view, props, stateWrapper)
   }
 
+  override fun addView(parent: ViewGroup, child: View, index: Int) {
+      super.addView(parent, child, index)
+      // print stack trace
+      val stackTrace = Thread.currentThread().stackTrace
+      val stackTraceString = stackTrace.joinToString("\n") { it.toString() }
+      android.util.Log.d("HybridBlurViewGroupManager", "addView called. Stack trace:\n$stackTraceString")
+  }
+
   protected override fun prepareToRecycleView(reactContext: ThemedReactContext, view: ViewGroup): ViewGroup? {
     super.prepareToRecycleView(reactContext, view)
     val hybridView = view.getTag(associated_hybrid_view_tag) as? HybridBlurViewGroup
@@ -69,4 +76,8 @@ open class HybridBlurViewGroupManager: ViewGroupManager<ViewGroup>() {
       return null
     }
   }
+
+//    override fun needsCustomLayoutForChildren(): Boolean {
+//        return true
+//    }
 }
